@@ -1,4 +1,5 @@
 import random
+import os
 
 
 def play():
@@ -44,7 +45,9 @@ def print_opening_message():
 
 def get_secret_word():
     words = []
-    with open("games/words.txt", "r") as wordsFile:
+    dirname = os.path.dirname(__file__)
+    filename = os.path.join(dirname, "words.txt")
+    with open(filename, "r") as wordsFile:
         for line in wordsFile:
             words.append(line.strip())
 
