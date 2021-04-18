@@ -1,15 +1,15 @@
 class Account:
     def __init__(self, number, owner, balance, limit):
-        self.number = number
-        self.owner = owner
-        self.balance = balance
-        self.limit = limit
+        self.__number = number
+        self.__owner = owner
+        self.__balance = balance
+        self.__limit = limit
 
     def whitdraw(self, amount):
-        self.balance -= amount
+        self.__balance -= amount
 
     def deposit(self, amount):
-        self.balance += amount
+        self.__balance += amount
 
     def get_balance(self):
-        return self.balance
+        return self.__balance
