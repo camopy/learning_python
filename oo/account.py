@@ -13,3 +13,7 @@ class Account:
 
     def get_balance(self):
         return self.__balance
+
+    def transfer(self, amount, account):
+        self.whitdraw(amount)
+        account.deposit(amount)
