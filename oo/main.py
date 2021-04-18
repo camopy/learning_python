@@ -9,3 +9,6 @@ print("Balance: ", account.balance)
 
 account.whitdraw(20)
 print("Balance: ", account.balance)
+
+account.whitdraw(1300)
+print("Balance: ", account.balance)

@@ -6,7 +6,10 @@ class Account:
         self.__limit = limit
 
     def whitdraw(self, amount):
+        if self.__validWhitdraw(amount):
         self.__balance -= amount
+        else:
+            print("Not enough funds")
 
     def deposit(self, amount):
         self.__balance += amount
@@ -34,3 +37,8 @@ class Account:
     @limit.setter
     def limit(self, limit):
         self.__limit = limit
+
+    def __validWhitdraw(self, amount):
+        available_amount = self.__balance + self.__limit
+        return available_amount > amount
+
