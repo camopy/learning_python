@@ -11,9 +11,26 @@ class Account:
     def deposit(self, amount):
         self.__balance += amount
 
-    def get_balance(self):
-        return self.__balance
-
     def transfer(self, amount, account):
         self.whitdraw(amount)
         account.deposit(amount)
+
+    @property
+    def number(self):
+        return self.__number
+
+    @property
+    def owner(self):
+        return self.__owner
+
+    @property
+    def balance(self):
+        return self.__balance
+
+    @property
+    def limit(self):
+        return self.__limit
+
+    @limit.setter
+    def limit(self, limit):
+        self.__limit = limit
