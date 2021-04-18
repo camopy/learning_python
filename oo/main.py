@@ -2,6 +2,8 @@ from account import Account
 
 account = Account(123, "Paulo", 100, 1000)
 
+print(account.owner)
+
 print("Balance: ", account.balance)
 
 account.deposit(50)

@@ -26,7 +26,7 @@ class Account:
 
     @property
     def owner(self):
-        return self.__owner
+        return self.__owner.title()
 
     @property
     def balance(self):
