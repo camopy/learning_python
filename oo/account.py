@@ -7,7 +7,7 @@ class Account:
 
     def whitdraw(self, amount):
         if self.__validWhitdraw(amount):
-        self.__balance -= amount
+            self.__balance -= amount
         else:
             print("Not enough funds")
 
@@ -42,3 +42,10 @@ class Account:
         available_amount = self.__balance + self.__limit
         return available_amount > amount
 
+    @staticmethod
+    def bank_code():
+        return "001"
+
+    @staticmethod
+    def bank_codes():
+        return {"BB": "001", "Caixa": "104", "Bradesco": "237"}
