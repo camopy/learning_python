@@ -15,7 +15,7 @@ def play():
     life = 7
 
     while not found and not forked:
-        print("\nYou have {} tries".format(life - errors))
+        print(f"\nYou have {life-errors} tries")
         print("Guess the word: ", guessed_letters)
         guess = input("What letter? ").strip().upper()
 
@@ -58,7 +58,7 @@ def fill_guessed_letters(secret_word, guessed_letters, guess):
     index = 0
     for letter in secret_word:
         if letter == guess:
-            print("Found the letter {} at {} position".format(letter, index))
+            print(f"Found the letter {letter} at {index} position")
             guessed_letters[index] = letter
         index += 1
 
@@ -69,7 +69,7 @@ def init_guessed_letters(secret_word):
 
 def print_looser_message(secret_word):
     print("\nYou were forked!")
-    print("The correct word was {}".format(secret_word))
+    print(f"The correct word was {secret_word}")
     print("    _______________         ")
     print("   /               \       ")
     print("  /                 \      ")

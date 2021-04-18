@@ -5,4 +5,8 @@ class Date:
         self.year = year
 
     def formated(self):
-        return "{}/{}/{}".format(self.month, self.day, self.year)
+        return f"{self.month}/{self.day}/{self.year}"
+
+
+date = Date(4, 18, 2021)
+print(date.formated())

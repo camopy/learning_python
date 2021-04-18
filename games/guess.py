@@ -11,7 +11,7 @@ def play():
     points = 1000
 
     for round in range(1, life + 1):
-        print("\nYou are at your {} try from {}".format(round, life))
+        print(f"\nYou are at your {round} try from {life}")
 
         guess_str = input("\nType a number from 1 to 100: ")
         print("You typed: ", guess_str)
