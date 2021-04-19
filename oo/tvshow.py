@@ -22,3 +22,6 @@ class Tvshow:
 
     def addLike(self):
         self._likes += 1
+
+    def __str__(self):
+        return f"{self._name.title()} - {self._year} - {self._likes} Likes"

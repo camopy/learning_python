@@ -21,17 +21,20 @@ from serie import Serie
 # print(Account.bank_codes())
 
 avengers = Movie("avengers", 2018, 160)
-print(avengers.name)
+# print(avengers.name)
 avengers.addLike()
 avengers.addLike()
-print(avengers.duration)
-print(avengers.likes)
-
+# print(avengers.duration)
+# print(avengers.likes)
 
 friends = Serie("friends", 2010, 10)
-print(friends.name)
+# print(friends.name)
 friends.addLike()
 friends.addLike()
 friends.addLike()
-print(friends.seasons)
-print(friends.likes)
+# print(friends.seasons)
+# print(friends.likes)
+
+playlist = [avengers, friends]
+for tvshow in playlist:
+    print(tvshow)

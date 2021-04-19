@@ -9,3 +9,6 @@ class Movie(Tvshow):
     @property
     def duration(self):
         return self._duration
+
+    def __str__(self):
+        return f"{self._name.title()} - {self._year} - {self._duration} min - {self._likes} Likes"
