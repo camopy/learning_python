@@ -1,24 +1,24 @@
 class Tvshow:
     def __init__(self, name, year):
-        self.__name = name
-        self.__year = year
-        self.__likes = 0
+        self._name = name
+        self._year = year
+        self._likes = 0
 
     @property
     def name(self):
-        return self.__name.title()
+        return self._name.title()
 
     @name.setter
     def name(self, new_name):
-        self.__name = new_name
+        self._name = new_name
 
     @property
     def year(self):
-        return self.__year
+        return self._year
 
     @property
     def likes(self):
-        return self.__likes
+        return self._likes
 
     def addLike(self):
-        self.__likes += 1
+        self._likes += 1

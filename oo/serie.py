@@ -4,8 +4,8 @@ from tvshow import Tvshow
 class Serie(Tvshow):
     def __init__(self, name, year, seasons):
         super().__init__(name, year)
-        self.__seasons = seasons
+        self._seasons = seasons
 
     @property
     def seasons(self):
-        return self.__seasons
+        return self._seasons
