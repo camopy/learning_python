@@ -1,19 +1,31 @@
 from account import Account
+from movie import Movie
+from serie import Serie
 
-account = Account(123, "Paulo", 100, 1000)
+# account = Account(123, "Paulo", 100, 1000)
 
-print(account.owner)
+# print(account.owner)
 
-print("Balance: ", account.balance)
+# print("Balance: ", account.balance)
 
-account.deposit(50)
-print("Balance: ", account.balance)
+# account.deposit(50)
+# print("Balance: ", account.balance)
 
-account.whitdraw(20)
-print("Balance: ", account.balance)
+# account.whitdraw(20)
+# print("Balance: ", account.balance)
 
-account.whitdraw(1300)
-print("Balance: ", account.balance)
+# account.whitdraw(1300)
+# print("Balance: ", account.balance)
 
-print(Account.bank_code)
-print(Account.bank_codes())
+# print(Account.bank_code)
+# print(Account.bank_codes())
+
+avengers = Movie("avengers", 2018, 160)
+print(avengers.name)
+print(avengers.likes)
+print(avengers.duration)
+
+friends = Serie("friends", 2010, 10)
+print(friends.name)
+print(friends.likes)
+print(friends.seasons)
