@@ -44,3 +44,15 @@ class URLExtractor:
 
         if not found:
             raise ValueError("Param not found")
+
+    def __str__(self):
+        return (
+            self.url
+            + "\nParameters: "
+            + self.get_url_params()
+            + "\nURL Base: "
+            + self.get_url_base()
+        )
+
+    def __len__(self):
+        return len(self.url)
