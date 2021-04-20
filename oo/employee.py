@@ -2,7 +2,7 @@ class Employee:
     def __init__(self, name):
         self.name = name
 
-    def registra_horas(self, horas):
+    def log_hours(self, horas):
         print("Logged hours.")
 
     def show_tasks(self):

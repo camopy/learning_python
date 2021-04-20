@@ -3,6 +3,9 @@
   "python.linting.pylintEnabled": true,
   "python.linting.flake8Enabled": false,
   "cSpell.words": [
+    "Alura",
+    "Alurete",
+    "Caelumer",
     "Caixa",
     "Paulo",
     "Serie"
