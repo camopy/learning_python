@@ -21,17 +21,23 @@ from playlist import Playlist
 # print(Account.bank_code)
 # print(Account.bank_codes())
 
-avengers = Movie("avengers", 2018, 160)
-avengers.addLike()
-avengers.addLike()
+avengers1 = Movie("avengers", 2017, 160)
+avengers2 = Movie("avengers", 2018, 160)
+avengers3 = Movie("avengers", 2018, 160)
+
+avengers2.addLike()
+avengers2.addLike()
 
 friends = Serie("friends", 2010, 10)
 friends.addLike()
 friends.addLike()
 friends.addLike()
 
-weekend_playlist = Playlist("Weekend playlist", [avengers, friends])
+weekend_playlist = Playlist("Weekend playlist", [avengers2, friends])
 for tvshow in weekend_playlist:
     print(tvshow)
 
 print(f"Playlist size: {len(weekend_playlist)}")
+
+print(avengers1 == avengers2)
+print(avengers2 == avengers3)

@@ -25,3 +25,6 @@ class Tvshow:
 
     def __str__(self):
         return f"{self._name.title()} - {self._year} - {self._likes} Likes"
+
+    def __eq__(self, other_tvshow):
+        return self.name == other_tvshow.name and self._year == other_tvshow.year
