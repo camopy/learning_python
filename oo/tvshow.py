@@ -28,3 +28,6 @@ class Tvshow:
 
     def __eq__(self, other_tvshow):
         return self.name == other_tvshow.name and self._year == other_tvshow.year
+
+    def __ne__(self, other_tvshow):
+        return self.name != other_tvshow.name or self._year != other_tvshow.year
