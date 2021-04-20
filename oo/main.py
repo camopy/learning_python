@@ -1,6 +1,7 @@
 from account import Account
 from movie import Movie
 from serie import Serie
+from playlist import Playlist
 
 # account = Account(123, "Paulo", 100, 1000)
 
@@ -21,20 +22,16 @@ from serie import Serie
 # print(Account.bank_codes())
 
 avengers = Movie("avengers", 2018, 160)
-# print(avengers.name)
 avengers.addLike()
 avengers.addLike()
-# print(avengers.duration)
-# print(avengers.likes)
 
 friends = Serie("friends", 2010, 10)
-# print(friends.name)
 friends.addLike()
 friends.addLike()
 friends.addLike()
-# print(friends.seasons)
-# print(friends.likes)
 
-playlist = [avengers, friends]
-for tvshow in playlist:
+weekend_playlist = Playlist("Weekend playlist", [avengers, friends])
+for tvshow in weekend_playlist:
     print(tvshow)
+
+print(f"Playlist size: {len(weekend_playlist)}")
