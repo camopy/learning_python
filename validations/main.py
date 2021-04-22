@@ -1,8 +1,7 @@
-from cpf import Cpf
-from cnpj import Cnpj
+from document import Document
 
-cpf = Cpf("15316264754")
+cpf = Document.init("15316264754")
 print(cpf)
 
-cnpj = Cnpj("73370813000147")
+cnpj = Document.init("73370813000147")
 print(cnpj)
