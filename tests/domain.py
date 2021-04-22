@@ -20,7 +20,7 @@ class Auction:
 
     @property
     def bids(self):
-        return self.__bids
+        return self.__bids[:]
 
 
 import sys
