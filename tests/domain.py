@@ -22,6 +22,9 @@ class Auction:
     def bids(self):
         return self.__bids[:]
 
+    def bet(self, bid: Bid):
+        self.__bids.append(bid)
+
 
 import sys
 

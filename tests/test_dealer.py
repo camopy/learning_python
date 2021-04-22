@@ -13,8 +13,8 @@ class TestDealer(TestCase):
         paulo = User("Paulo")
         paulo_bid = Bid(paulo, 100.0)
 
-        self.auction.bids.append(paulo_bid)
-        self.auction.bids.append(self.amanda_bid)
+        self.auction.bet(paulo_bid)
+        self.auction.bet(self.amanda_bid)
 
         self.dealer.check(self.auction)
 
@@ -27,8 +27,8 @@ class TestDealer(TestCase):
         paulo = User("Paulo")
         paulo_bid = Bid(paulo, 100.0)
 
-        self.auction.bids.append(self.amanda_bid)
-        self.auction.bids.append(paulo_bid)
+        self.auction.bet(self.amanda_bid)
+        self.auction.bet(paulo_bid)
 
         self.dealer.check(self.auction)
 
@@ -38,7 +38,7 @@ class TestDealer(TestCase):
         )
 
     def test_should_return_lowest_and_highest_bids_when_there_is_only_one_bid(self):
-        self.auction.bids.append(self.amanda_bid)
+        self.auction.bet(self.amanda_bid)
 
         self.dealer.check(self.auction)
 
