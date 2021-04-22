@@ -1,12 +1,13 @@
+from datetime import datetime, timedelta
+
+
 class Date:
-    def __init__(self, month, day, year):
-        self.month = month
-        self.day = day
-        self.year = year
+    def __init__(self):
+        self.date = datetime.today()
 
     def format(self):
-        return f"{self.month}/{self.day}/{self.year}"
+        return self.date.strftime("%d/%m/%Y %H:%M")
 
 
-date = Date(4, 18, 2021)
+date = Date()
 print(date.format())
