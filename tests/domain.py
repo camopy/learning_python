@@ -28,10 +28,21 @@ class Auction:
         return self.__bids[:]
 
     def bet(self, bid: Bid):
-        self.__bids.append(bid)
+        if self.validate_bid(bid):
+            self.__bids.append(bid)
 
-        for bid in self.bids:
-            if bid.value > self.highest_bid:
-                self.highest_bid = bid.value
-            if bid.value < self.lowest_bid:
-                self.lowest_bid = bid.value
+            for bid in self.bids:
+                if bid.value > self.highest_bid:
+                    self.highest_bid = bid.value
+                if bid.value < self.lowest_bid:
+                    self.lowest_bid = bid.value
+
+    def validate_bid(self, bid: Bid):
+        if self.bids:
+            last_bid = self.bids[-1]
+            if last_bid.user == bid.user:
+                raise ValueError("User cannot not be the same from last bid")
+            elif last_bid.value > bid.value:
+                raise ValueError("Bid value must be higher than last bid")
+
+        return True
