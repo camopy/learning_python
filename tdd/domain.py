@@ -1,10 +1,20 @@
 class User:
-    def __init__(self, name):
+    def __init__(self, name, wallet):
         self.__name = name
+        self.__wallet = wallet
 
     @property
     def name(self):
         return self.__name
+
+    @property
+    def wallet(self):
+        return self.__wallet
+
+    def bet(self, auction, value):
+        bid = Bid(self, value)
+        auction.bet(bid)
+        self.__wallet -= value
 
 
 class Bid:

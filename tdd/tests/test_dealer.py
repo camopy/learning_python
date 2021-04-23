@@ -5,12 +5,12 @@ from unittest import TestCase
 
 class TestDealer(TestCase):
     def setUp(self):
-        self.amanda = User("Amanda")
+        self.amanda = User("Amanda", 500.0)
         self.amanda_bid = Bid(self.amanda, 150.0)
         self.auction = Auction("Notebook")
 
     def test_should_return_lowest_and_highest_bids_when_added_in_ascending_order(self):
-        paulo = User("Paulo")
+        paulo = User("Paulo", 500.0)
         paulo_bid = Bid(paulo, 100.0)
 
         self.auction.bet(paulo_bid)
@@ -42,7 +42,7 @@ class TestDealer(TestCase):
     def test_should_deny_bet_if_last_bid_is_higher(self):
         self.auction.bet(self.amanda_bid)
 
-        paulo = User("Paulo")
+        paulo = User("Paulo", 500.0)
         paulo_bid = Bid(paulo, 100.0)
 
         with self.assertRaises(ValueError):
