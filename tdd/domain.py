@@ -12,11 +12,15 @@ class User:
         return self.__wallet
 
     def bet(self, auction, value):
-        if value > self.wallet:
+        if self._valid_value(value):
+            bid = Bid(self, value)
+            auction.bet(bid)
+            self.__wallet -= value
+        else:
             raise ValueError("Bet is higher than wallet")
-        bid = Bid(self, value)
-        auction.bet(bid)
-        self.__wallet -= value
+
+    def _valid_value(self, value):
+        return value <= self.wallet
 
 
 class Bid:
@@ -25,15 +29,12 @@ class Bid:
         self.value = value
 
 
-import sys
-
-
 class Auction:
     def __init__(self, description):
         self.description = description
         self.__bids = []
-        self.lowest_bid = sys.float_info.max
-        self.highest_bid = sys.float_info.min
+        self.lowest_bid = 0
+        self.highest_bid = 0
 
     @property
     def bids(self):
@@ -41,20 +42,30 @@ class Auction:
 
     def bet(self, bid: Bid):
         if self.validate_bid(bid):
+            if not self._has_bids():
+                self.lowest_bid = bid.value
+            self.highest_bid = bid.value
+
             self.__bids.append(bid)
 
-            for bid in self.bids:
-                if bid.value > self.highest_bid:
-                    self.highest_bid = bid.value
-                if bid.value < self.lowest_bid:
-                    self.lowest_bid = bid.value
-
     def validate_bid(self, bid: Bid):
-        if self.bids:
-            last_bid = self.bids[-1]
-            if last_bid.user == bid.user:
+        if self._has_bids():
+            if self._same_user_from_last_bid(bid):
                 raise ValueError("User cannot not be the same from last bid")
-            elif last_bid.value > bid.value:
+            elif self._higher_bid_than_last_bid(bid):
                 raise ValueError("Bid value must be higher than last bid")
 
         return True
+
+    def _has_bids(self):
+        return self.bids
+
+    def _same_user_from_last_bid(self, bid):
+        if self._has_bids():
+            return self.bids[-1].user == bid.user
+        return False
+
+    def _higher_bid_than_last_bid(self, bid):
+        if self._has_bids():
+            return self.bids[-1].value > bid.value
+        return False
