@@ -13,10 +13,15 @@ class Bid:
         self.value = value
 
 
+import sys
+
+
 class Auction:
     def __init__(self, description):
         self.description = description
         self.__bids = []
+        self.lowest_bid = sys.float_info.max
+        self.highest_bid = sys.float_info.min
 
     @property
     def bids(self):
@@ -25,17 +30,7 @@ class Auction:
     def bet(self, bid: Bid):
         self.__bids.append(bid)
 
-
-import sys
-
-
-class Dealer:
-    def __init__(self):
-        self.lowest_bid = sys.float_info.max
-        self.highest_bid = sys.float_info.min
-
-    def check(self, auction: Auction):
-        for bid in auction.bids:
+        for bid in self.bids:
             if bid.value > self.highest_bid:
                 self.highest_bid = bid.value
             if bid.value < self.lowest_bid:
