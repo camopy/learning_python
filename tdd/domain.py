@@ -12,6 +12,8 @@ class User:
         return self.__wallet
 
     def bet(self, auction, value):
+        if value > self.wallet:
+            raise ValueError("Bet is higher than wallet")
         bid = Bid(self, value)
         auction.bet(bid)
         self.__wallet -= value

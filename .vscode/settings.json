@@ -9,7 +9,8 @@
     "Caixa",
     "Paulo",
     "Serie",
-    "cnpj"
+    "cnpj",
+    "pytest"
   ],
   "python.testing.unittestArgs": [
     "-v",
