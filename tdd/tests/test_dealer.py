@@ -1,4 +1,5 @@
-from domain import User, Auction, Bid
+from tdd.domain import User, Auction, Bid
+
 from unittest import TestCase
 
 
