@@ -1,4 +1,5 @@
 from tdd.domain import User, Auction, Bid
+from tdd.exceptions import InvalidBet
 
 from unittest import TestCase
 
@@ -45,7 +46,7 @@ class TestDealer(TestCase):
         paulo = User("Paulo", 500.0)
         paulo_bid = Bid(paulo, 100.0)
 
-        with self.assertRaises(ValueError):
+        with self.assertRaises(InvalidBet):
             self.auction.bet(paulo_bid)
 
     def test_should_deny_bet_if_user_is_the_same_from_last_bid(self):
@@ -53,5 +54,5 @@ class TestDealer(TestCase):
 
         new_bid = Bid(self.amanda, 200.0)
 
-        with self.assertRaises(ValueError):
+        with self.assertRaises(InvalidBet):
             self.auction.bet(new_bid)

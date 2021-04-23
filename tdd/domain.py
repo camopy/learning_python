@@ -1,3 +1,6 @@
+from tdd.exceptions import InvalidBet
+
+
 class User:
     def __init__(self, name, wallet):
         self.__name = name
@@ -51,9 +54,9 @@ class Auction:
     def validate_bid(self, bid: Bid):
         if self._has_bids():
             if self._same_user_from_last_bid(bid):
-                raise ValueError("User cannot not be the same from last bid")
+                raise InvalidBet("User cannot not be the same from last bid")
             elif self._higher_bid_than_last_bid(bid):
-                raise ValueError("Bid value must be higher than last bid")
+                raise InvalidBet("Bid value must be higher than last bid")
 
         return True
 
